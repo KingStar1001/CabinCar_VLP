@@ -22,11 +22,13 @@ public class LegendaInfo{
 }
 public class CommonFuns : MonoBehaviour
 {
+    //position datas
     public static List<PositionInfo> e2w_data = new List<PositionInfo>();
     public static List<PositionInfo> w2e_data = new List<PositionInfo>();
     public static List<PositionInfo> s2n_data = new List<PositionInfo>();
     public static List<PositionInfo> n2s_data = new List<PositionInfo>();
 
+    //legenda data
     public static List<LegendaInfo> legenda_data = new List<LegendaInfo>();
 
     void Awake(){
@@ -46,6 +48,7 @@ public class CommonFuns : MonoBehaviour
         return lines;
     }
 
+    //load e2w positions
     public static void LoadE2W(){
         string[] lines = LoadData("E2W.txt");
         
@@ -66,6 +69,7 @@ public class CommonFuns : MonoBehaviour
         }
     }
 
+    //load w2e positions
     public static void LoadW2E(){
         string[] lines = LoadData("W2E.txt");
         
@@ -86,6 +90,7 @@ public class CommonFuns : MonoBehaviour
         }
     }
 
+    //load s2n positions
     public static void LoadS2N(){
         string[] lines = LoadData("S2N.txt");
         
@@ -106,6 +111,7 @@ public class CommonFuns : MonoBehaviour
         }
     }
 
+    //load n2s positions
     public static void LoadN2S(){
         string[] lines = LoadData("N2S.txt");
         
@@ -126,6 +132,7 @@ public class CommonFuns : MonoBehaviour
         }
     }
 
+    //load legenda positions
     public static void LoadLegenda(){
         string[] lines = LoadData("Legenda.txt");
         

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{82c50d4b-b13d-cf01-5eb0-ff53dbb9d043}</ProjectGuid>
+    <ProjectGuid>{e4ef839d-87f9-e510-0de6-80a026567e5f}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -41,11 +41,9 @@
      <Compile Include="Assets\NGUI\Scripts\Editor\NGUIContextMenu.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\ProgressBarEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIProgressBarEditor.cs" />
-     <Compile Include="Assets\FUNCAR Kit\Editor\ImageEffects\DepthOfFieldEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UISpriteAnimationInspector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\PropertyReferenceDrawer.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIPlayAnimationEditor.cs" />
-     <Compile Include="Assets\FUNCAR Kit\Editor\ImageEffects\NoiseAndGrainEditor.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\RadialLayoutGroupEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIPanelInspector.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\CustomDropdownEditor.cs" />
@@ -62,16 +60,13 @@
      <Compile Include="Assets\NGUI\Scripts\Editor\UISnapshotPointEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIButtonKeysEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UI2DSpriteEditor.cs" />
-     <Compile Include="Assets\FUNCAR Kit\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\PropertyBindingEditor.cs" />
-     <Compile Include="Assets\FUNCAR Kit\Editor\ImageEffects\ColorCorrectionCurvesEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\NGUISettings.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIEventTriggerEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\NGUIHandles.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UISpriteInspector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\NGUIEditorExtensions.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\ButtonManagerBasicWithIconEditor.cs" />
-     <Compile Include="Assets\FUNCAR Kit\Editor\ImageEffects\BloomEditor.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\UIGradientEditor.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\ContextMenuContentEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\SpriteSelector.cs" />
@@ -90,7 +85,6 @@
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\SliderManagerEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\NGUIHelp.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIScrollViewEditor.cs" />
-     <Compile Include="Assets\FUNCAR Kit\Editor\ImageEffects\ColorCorrectionLookupEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIStretchEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIForwardEventsEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\TweenTransformEditor.cs" />
@@ -106,7 +100,6 @@
      <Compile Include="Assets\NGUI\Scripts\Editor\UIDrawCallViewer.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\NGUIAtlasInspector.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\ContextMenuManagerEditor.cs" />
-     <Compile Include="Assets\FUNCAR Kit\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\ButtonManagerBasicEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIAtlasMaker.cs" />
@@ -117,14 +110,11 @@
      <Compile Include="Assets\NGUI\Scripts\Editor\UIPanelTool.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UITweenerEditor.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\InitMUIP.cs" />
-     <Compile Include="Assets\FUNCAR Kit\Editor\ImageEffects\TonemappingEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\TweenAlphaEditor.cs" />
-     <Compile Include="Assets\FUNCAR Kit\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\ButtonManagerWithIconEditor.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\DropdownMultiSelectEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIPopupListInspector.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\UIManagerEditor.cs" />
-     <Compile Include="Assets\FUNCAR Kit\Editor\ImageEffects\EdgeDetectionEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIImageButtonInspector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UITextureInspector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIColorPickerEditor.cs" />
@@ -135,14 +125,10 @@
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\IconManagerEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\ComponentSelector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIGridEditor.cs" />
-     <Compile Include="Assets\FUNCAR Kit\Editor\ImageEffects\AntialiasingEditor.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\ButtonManagerEditor.cs" />
-     <Compile Include="Assets\FUNCAR Kit\Editor\ImageEffects\CameraMotionBlurEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIToggleInspector.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\NotificationManagerEditor.cs" />
-     <Compile Include="Assets\FUNCAR Kit\Editor\ImageEffects\SunShaftsEditor.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\HorizontalSelectorEditor.cs" />
-     <Compile Include="Assets\FUNCAR Kit\Editor\ImageEffects\DepthOfFieldDeprecatedEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIPlayTweenEditor.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\TooltipManagerEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\BMFontReader.cs" />
@@ -155,8 +141,8 @@
      <Compile Include="Assets\NGUI\Scripts\Editor\UICameraTool.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\SwitchManagerEditor.cs" />
      <Compile Include="Assets\Modern UI Pack\Editor\Scripts\ButtonManagerIconEditor.cs" />
-     <Compile Include="Assets\NGUI\Scripts\Editor\NGUIEditorTools.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIDrawCallInspector.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\NGUIEditorTools.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UICreateNewUIWizard.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\EventDelegateDrawer.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\TweenPositionEditor.cs" />
@@ -168,9 +154,6 @@
      <Compile Include="Assets\NGUI\Scripts\Editor\UIButtonMessageEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIWidgetContainerEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\NGUISnap.cs" />
-     <Compile Include="Assets\City Builder Template\Editor\ItemEditor\ItemEditorWindow.cs" />
-     <Compile Include="Assets\City Builder Template\Editor\SceneUtils\SceneViewUtil.cs" />
-     <Compile Include="Assets\City Builder Template\Editor\SpriteEditor\SpriteEditorWindow.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity 2020.3.30f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -400,19 +383,19 @@
         <HintPath>C:\Program Files\Unity 2020.3.30f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\PackageCache\com.unity.collab-proxy@1.15.12\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\PackageCache\com.unity.collab-proxy@1.15.12\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\PackageCache\com.unity.collab-proxy@1.15.12\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\PackageCache\com.unity.collab-proxy@1.15.12\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\PackageCache\com.unity.collab-proxy@1.15.12\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\PackageCache\com.unity.collab-proxy@1.15.12\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\PackageCache\com.unity.collab-proxy@1.15.12\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\PackageCache\com.unity.collab-proxy@1.15.12\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
         <HintPath>C:\Program Files\Unity 2020.3.30f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
@@ -763,45 +746,45 @@
         <HintPath>C:\Program Files\Unity 2020.3.30f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>E:\work\projects\Goran\VLP2\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+        <HintPath>D:\Git_Work\CabinCar_VLP\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{e04a4229-1eb3-7af6-4970-5c30e73af075}</Project>
+      <Project>{f916bf41-fc96-3abc-452d-62714c7e4a27}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
   </ItemGroup>
