@@ -2,7 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Michsky.UI.ModernUIPack;
+using UnityEngine.UI;
+using System;
 
+[Serializable]
+public class ColorSet{
+    public Color back_color;
+    public Color vlp_color;
+}
 public class MainManager : MonoBehaviour
 {
     public static MainManager instance;
@@ -39,9 +46,18 @@ public class MainManager : MonoBehaviour
 
     public bool isStart = false;
     public GameObject startBtn;
+
+    public Toggle color1Toggle;
+    public Toggle color2Toggle;
+    public Toggle color3Toggle;
+
+    public List<ColorSet> colors;
     // Start is called before the first frame update
     void Awake(){
         instance = this;
+
+        Screen.fullScreen = false;
+        Screen.SetResolution(1680, 1188, FullScreenMode.Windowed, 24);
     }
     void Start()
     {
@@ -57,6 +73,7 @@ public class MainManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.LogError(Screen.width.ToString() + "," + Screen.height.ToString());
         //create wlps every 1 second
         if(isStart){
             deltaTime += Time.deltaTime;
@@ -144,5 +161,23 @@ public class MainManager : MonoBehaviour
     public void OnStart(){
         isStart = true;
         startBtn.SetActive(false);
+    }
+
+    public void OnToggleChange(){
+        if(color1Toggle.isOn){
+            back_color = colors[0].back_color;
+            vlp_color = colors[0].vlp_color;
+            background.color = back_color;
+        }
+        if(color2Toggle.isOn){
+            back_color = colors[1].back_color;
+            vlp_color = colors[1].vlp_color;
+            background.color = back_color;  
+        }
+        if(color3Toggle.isOn){
+            back_color = colors[2].back_color;
+            vlp_color = colors[2].vlp_color;
+            background.color = back_color;
+        }
     }
 }

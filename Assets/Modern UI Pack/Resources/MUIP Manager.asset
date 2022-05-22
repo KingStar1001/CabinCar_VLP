@@ -93,10 +93,10 @@ MonoBehaviour:
   toggleFont: {fileID: 11400000, guid: 4bd810f1cbcb0f446a8f5a31453e243f, type: 2}
   toggleFontSize: 35
   toggleThemeType: 0
-  toggleTextColor: {r: 1, g: 1, b: 1, a: 1}
-  toggleBorderColor: {r: 1, g: 1, b: 1, a: 1}
-  toggleBackgroundColor: {r: 1, g: 1, b: 1, a: 0.29411766}
-  toggleCheckColor: {r: 1, g: 1, b: 1, a: 1}
+  toggleTextColor: {r: 0, g: 0.9529412, b: 1, a: 1}
+  toggleBorderColor: {r: 0, g: 0.9490196, b: 1, a: 1}
+  toggleBackgroundColor: {r: 0, g: 0.99215686, b: 1, a: 0.29411766}
+  toggleCheckColor: {r: 0, g: 1, b: 0.92156863, a: 1}
   tooltipFont: {fileID: 11400000, guid: 4bd810f1cbcb0f446a8f5a31453e243f, type: 2}
   tooltipFontSize: 22
   tooltipTextColor: {r: 1, g: 1, b: 1, a: 1}
