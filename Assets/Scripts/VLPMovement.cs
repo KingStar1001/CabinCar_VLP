@@ -14,6 +14,7 @@ public class VLPMovement : MonoBehaviour
     public UISprite vlpSprite;
     public UISprite vlpGlurSprite;
     public GameObject cabin;
+    public UISprite cabin_sprite;
 
     public bool has_cabin;
 
@@ -24,6 +25,8 @@ public class VLPMovement : MonoBehaviour
 
     public bool showDistanceLabel;
     public UILabel distanceLabel;
+
+    public int rotationType;
 
     public PositionInfo currentPositionInfo;
     // Start is called before the first frame update
@@ -47,17 +50,46 @@ public class VLPMovement : MonoBehaviour
                 if(pos.pos <= 0.5f || pos.v <= 0.5f)
                     transform.localPosition = new Vector3(-1000, -1000, 0);
                 else{
-                    if(!direction){
-                        movement -= 840f;
-                        transform.localPosition = new Vector3(movement, constPos, 0);
+                    if(rotationType == 0){
+                        if(!direction){
+                            movement -= 840f;
+                            transform.localPosition = new Vector3(movement, constPos, 0);
+                        } else {
+                            movement -= 594f;
+                            transform.localPosition = new Vector3(constPos, movement, 0);
+                        }
                     } else {
-                        movement -= 594f;
-                        transform.localPosition = new Vector3(constPos, movement, 0);
+                        if(!direction){
+                            movement -= 840f;
+                            float y = pos.pos2 / 500f - 594f;
+                            transform.localPosition = new Vector3(movement, y, 0);
+                        } else {
+                            movement -= 594f;
+                            float x = pos.pos2 / 500f - 840f;
+                            transform.localPosition = new Vector3(x, movement, 0);
+                        }
                     }
                 }
             }
             vlpSprite.color = MainManager.instance.vlp_color;
+            if(has_cabin && rotationType == 0)
+                cabin_sprite.color = MainManager.instance.cabin_color;
 
+            if(rotationType != 0){
+                if(rotationType == 1){
+                    if(index >= 586){
+                        float rot = 90f - 90f * (index - 586f) / 119f;
+                        if(rot < 0) rot = 0f;
+                        cabin.transform.localEulerAngles = new Vector3(0, 0, rot);
+                    }
+                } else if(rotationType == 2){
+                    if(index >= 675){
+                        float rot = 90f - 270f * (index - 675f) / 342f;
+                        if(rot < -180f) rot = -180f;
+                        cabin.transform.localEulerAngles = new Vector3(0, 0, rot);
+                    }
+                }
+            }
             // if(showDistanceLabel){
             //     if(beforeVLP != null){
             //         distanceLabel.gameObject.SetActive(true);
@@ -89,23 +121,44 @@ public class VLPMovement : MonoBehaviour
         }
     }
 
-    public void InitPoses(List<PositionInfo> _poses, bool _direction, float _constPos, bool showLabel, VLPMovement before){
+    public void InitPoses(List<PositionInfo> _poses, bool _direction, string _horizontal, float _constPos, bool showLabel, VLPMovement before, bool _has_cabin, int _rotationType){
+        rotationType = _rotationType;
         beforeVLP = before;
         showDistanceLabel = showLabel;
         direction = _direction;
         constPos = _constPos;
         movePoses = _poses;
         startMove = true;
-        has_cabin = false;
-        cabin.SetActive(false);
-/*
-        int rand = Random.Range(0, 4);
-        if(rand == 0){
+        has_cabin = _has_cabin;
+        cabin.SetActive(has_cabin);
+        if(direction){
+            if(_horizontal == "f"){
+                cabin.transform.localEulerAngles = new Vector3(0, 0, 90);
+            }else{
+                cabin.transform.localEulerAngles = new Vector3(0, 0, 270);
+            }
+        }else{
+            if(_horizontal == "f"){
+                cabin.transform.localEulerAngles = new Vector3(0, 0, 180);
+            }else{
+                cabin.transform.localEulerAngles = new Vector3(0, 0, 0);
+            }
+        }
+
+        if(has_cabin){
             cabin.SetActive(true);
-            has_cabin = true;
+            if(rotationType == 0){
+                cabin_sprite.color = new Color32(255, 255, 255, 255);
+            } else if (rotationType == 1) {
+                cabin_sprite.color = new Color32(255, 0, 0, 255);
+                Debug.Log(movePoses.Count);
+            } else if (rotationType == 2) {
+                cabin_sprite.color = new Color32(0, 255, 0, 255);
+                Debug.Log(movePoses.Count);
+            }
         }else{
             cabin.SetActive(false);
-            has_cabin = false;
-        }*/
+        }
+//        cabin.SetActive(false);
     }
 }

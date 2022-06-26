@@ -9,6 +9,7 @@ using System;
 public class ColorSet{
     public Color back_color;
     public Color vlp_color;
+    public Color cabin_color;
 }
 public class MainManager : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class MainManager : MonoBehaviour
 
     public Color back_color;
     public Color vlp_color;
+    public Color cabin_color;
 
     public UISprite background;
 
@@ -52,6 +54,10 @@ public class MainManager : MonoBehaviour
     public Toggle color3Toggle;
 
     public List<ColorSet> colors;
+
+    public int tickCounter = 0;
+
+
     // Start is called before the first frame update
     void Awake(){
         instance = this;
@@ -61,7 +67,6 @@ public class MainManager : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log("start");
         back_r.mainSlider.value = back_color.r;
         back_g.mainSlider.value = back_color.g;
         back_b.mainSlider.value = back_color.b;
@@ -83,6 +88,25 @@ public class MainManager : MonoBehaviour
 
                 CreatePoints();
             }
+
+            if(deltaTime >= 60f){
+                float alpha = deltaTime - 60f;
+                if(alpha > 1f) alpha = 1f;
+                cabin_color = new Color(cabin_color.r, cabin_color.g, cabin_color.b, alpha);
+            }
+
+            if(deltaTime >= 120f){
+                float alpha = 121f - deltaTime;
+                if(alpha < 0f) alpha = 0f;
+                vlp_color = new Color(vlp_color.r, vlp_color.g, vlp_color.b, alpha);
+            }
+
+            if(deltaTime >= 180f){
+                float val = 1 + (deltaTime - 180f) / 15f;
+                if(val > 2f) val = 2f;
+                Main.transform.localScale = Vector3.one * val;
+                zoomSlider.mainSlider.value = val - 1f;
+            }
         }
     }
     //control zooming
@@ -93,7 +117,10 @@ public class MainManager : MonoBehaviour
     //create wlps
     void CreatePoints(){
         bool isFirst = true;
+        int roadIndex = 0;
+        tickCounter ++;
         foreach(LegendaInfo legenda in CommonFuns.legenda_data){
+            int rotationType = 0;
             GameObject obj = (GameObject)Instantiate(vlpTemplate, container);
             VLPMovement vlp = obj.GetComponent<VLPMovement>();
 
@@ -116,10 +143,50 @@ public class MainManager : MonoBehaviour
             } else if (legenda.baseTable == 4){
                 baseTable = CommonFuns.n2s_data;
             }
-            vlp.InitPoses(baseTable, direction, constPos, isFirst, beforeVLP);
+            bool show_cabin = false;
+            if(roadIndex == 8){
+                if(tickCounter % 2 == 0){
+                    show_cabin = true;
+                }
+            } else if(roadIndex == 7){
+                if(tickCounter % 4 == 0){
+                    show_cabin = true;
+                }
+            } else {
+                if(UnityEngine.Random.Range(0, 100) < 20){
+                    show_cabin = true;
+                }
+            }
+
+            if (roadIndex == 15) {
+                if (tickCounter >= 12) {
+                    if ((tickCounter - 12) % 6 == 0) {
+                        baseTable = CommonFuns.rt_data;
+                        rotationType = 1;
+                        if(deltaTime >= 60f){
+                            show_cabin = true;
+                        }
+                    }
+                }
+
+                if (tickCounter >= 16) {
+                    if ((tickCounter - 16) % 10 == 0) {
+                        baseTable = CommonFuns.lt_data;
+                        rotationType = 2;
+                        if(deltaTime >= 60f){
+                            show_cabin = true;
+                        }
+                    }
+                }
+            }
+            if(deltaTime < 60f)
+                show_cabin = false;
+
+            vlp.InitPoses(baseTable, direction, legenda.horizontal, constPos, isFirst, beforeVLP, show_cabin, rotationType);
             if(isFirst)
                 beforeVLP = vlp;
             isFirst = false;
+            roadIndex++;
         }
     }
 
@@ -167,16 +234,19 @@ public class MainManager : MonoBehaviour
         if(color1Toggle.isOn){
             back_color = colors[0].back_color;
             vlp_color = colors[0].vlp_color;
+            cabin_color = colors[0].cabin_color;
             background.color = back_color;
         }
         if(color2Toggle.isOn){
             back_color = colors[1].back_color;
             vlp_color = colors[1].vlp_color;
+            cabin_color = colors[1].cabin_color;
             background.color = back_color;  
         }
         if(color3Toggle.isOn){
             back_color = colors[2].back_color;
             vlp_color = colors[2].vlp_color;
+            cabin_color = colors[2].cabin_color;
             background.color = back_color;
         }
     }

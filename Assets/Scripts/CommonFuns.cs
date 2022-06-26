@@ -8,12 +8,14 @@ public class PositionInfo{
     public int frame;
     public float pos;
     public float v;
+    public float pos2;
 }
 
 public class LegendaInfo{
     public int id;
     public string name;
     public string direction;
+    public string horizontal;
     public int baseTable;
     public float x;
     public float y;
@@ -27,6 +29,8 @@ public class CommonFuns : MonoBehaviour
     public static List<PositionInfo> w2e_data = new List<PositionInfo>();
     public static List<PositionInfo> s2n_data = new List<PositionInfo>();
     public static List<PositionInfo> n2s_data = new List<PositionInfo>();
+    public static List<PositionInfo> rt_data = new List<PositionInfo>();
+    public static List<PositionInfo> lt_data = new List<PositionInfo>();
 
     //legenda data
     public static List<LegendaInfo> legenda_data = new List<LegendaInfo>();
@@ -36,6 +40,8 @@ public class CommonFuns : MonoBehaviour
         LoadW2E();
         LoadS2N();
         LoadN2S();
+        LoadRT();
+        LoadLT();
         LoadLegenda();
     }
     public static string[] LoadData(string filename){
@@ -132,6 +138,49 @@ public class CommonFuns : MonoBehaviour
         }
     }
 
+    //load RT positions
+    public static void LoadRT(){
+        string[] lines = LoadData("RT.txt");
+        
+        rt_data.Clear();
+        int index = 0;
+        foreach(string line in lines) {
+            var data = line.Split("\t"[0]);
+            if(index > 0){
+                PositionInfo info = new PositionInfo();
+                if(data.Length == 4){
+                    int.TryParse(data[0], out info.frame);
+                    float.TryParse(data[1], out info.pos);
+                    float.TryParse(data[2], out info.v);
+                    float.TryParse(data[3], out info.pos2);
+                    rt_data.Add(info);
+                }
+            }
+            index ++;
+        }
+    }
+
+    public static void LoadLT(){
+        string[] lines = LoadData("LT.txt");
+        
+        lt_data.Clear();
+        int index = 0;
+        foreach(string line in lines) {
+            var data = line.Split("\t"[0]);
+            if(index > 0){
+                PositionInfo info = new PositionInfo();
+                if(data.Length == 4){
+                    int.TryParse(data[0], out info.frame);
+                    float.TryParse(data[1], out info.pos);
+                    float.TryParse(data[2], out info.v);
+                    float.TryParse(data[3], out info.pos2);
+                    lt_data.Add(info);
+                }
+            }
+            index ++;
+        }
+    }
+
     //load legenda positions
     public static void LoadLegenda(){
         string[] lines = LoadData("Legenda.txt");
@@ -142,15 +191,16 @@ public class CommonFuns : MonoBehaviour
             var data = line.Split("\t"[0]);
             if(index > 0){
                 LegendaInfo info = new LegendaInfo();
-                if(data.Length == 8){
+                if(data.Length == 9){
                     int.TryParse(data[0], out info.id);
                     info.name = data[1];
                     int.TryParse(data[2], out info.baseTable);
                     info.direction = data[3];
-                    float.TryParse(data[4], out info.x);
-                    float.TryParse(data[5], out info.y);
-                    int.TryParse(data[6], out info.delay);
-                    int.TryParse(data[7], out info.frame_rate);
+                    info.horizontal = data[4];
+                    float.TryParse(data[5], out info.x);
+                    float.TryParse(data[6], out info.y);
+                    int.TryParse(data[7], out info.delay);
+                    int.TryParse(data[8], out info.frame_rate);
                     legenda_data.Add(info);
                 }
             }
