@@ -29,6 +29,8 @@ public class VLPMovement : MonoBehaviour
     public int rotationType;
 
     public PositionInfo currentPositionInfo;
+
+    public int beforeIndex = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,11 @@ public class VLPMovement : MonoBehaviour
                 DestroyObject(gameObject);
             }else{
                 PositionInfo pos = movePoses[index];
+                if(beforeIndex != index && showDistanceLabel){
+                    beforeIndex = index;
+                    // Debug.LogError("index:" + index);
+                    // Debug.LogError("position:" + pos.pos);
+                }
                 currentPositionInfo = pos;
                 float movement = pos.pos / 500f;
                 if(pos.pos <= 0.5f || pos.v <= 0.5f)

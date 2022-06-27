@@ -3185,7 +3185,7 @@ MonoBehaviour:
   background: {fileID: 790859901}
   settingOutCollider: {fileID: 712712526}
   beforeVLP: {fileID: 0}
-  isStart: 0
+  isStart: 1
   startBtn: {fileID: 1936370456}
   color1Toggle: {fileID: 1168686429}
   color2Toggle: {fileID: 219901291}

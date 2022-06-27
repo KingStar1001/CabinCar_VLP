@@ -53,6 +53,29 @@ public class CommonFuns : MonoBehaviour
         var lines = fileContents.Split("\n"[0]);
         return lines;
     }
+    public static bool IsNumeric(string s)
+    {
+        s = s.Replace("\n","").Replace("\r","");
+        if(s == "") return false;
+        foreach (char c in s)
+        {
+            if (!char.IsDigit(c) && c != '.')
+            {
+                // Debug.LogError((int)c);
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static string changeDouble(string s) {
+        if(s.Contains(".")){
+            s = s.Substring(0, s.LastIndexOf('.'));
+            // Debug.LogError(s);
+        }
+        return s;
+    }
 
     //load e2w positions
     public static void LoadE2W(){
@@ -66,9 +89,16 @@ public class CommonFuns : MonoBehaviour
                 PositionInfo info = new PositionInfo();
                 if(data.Length == 3){
                     int.TryParse(data[0], out info.frame);
-                    float.TryParse(data[1], out info.pos);
-                    float.TryParse(data[2], out info.v);
+                    if(IsNumeric(data[1])) {
+                        info.pos = float.Parse(changeDouble(data[1]));
+                    }
+                    if(IsNumeric(data[2])) {
+                        info.v = float.Parse(changeDouble(data[2]));
+                    }
                     e2w_data.Add(info);
+
+                    // Debug.LogError("string:" + data[0] + " " + data[1] + " " + data[2]);
+                    // Debug.LogError("value:" + info.frame + " " + info.pos + " " + info.v);
                 }
             }
             index ++;
@@ -87,8 +117,12 @@ public class CommonFuns : MonoBehaviour
                 PositionInfo info = new PositionInfo();
                 if(data.Length == 3){
                     int.TryParse(data[0], out info.frame);
-                    float.TryParse(data[1], out info.pos);
-                    float.TryParse(data[2], out info.v);
+                    if(IsNumeric(data[1])) {
+                        info.pos = float.Parse(changeDouble(data[1]));
+                    }
+                    if(IsNumeric(data[2])) {
+                        info.v = float.Parse(changeDouble(data[2]));
+                    }
                     w2e_data.Add(info);
                 }
             }
@@ -108,8 +142,12 @@ public class CommonFuns : MonoBehaviour
                 PositionInfo info = new PositionInfo();
                 if(data.Length == 3){
                     int.TryParse(data[0], out info.frame);
-                    float.TryParse(data[1], out info.pos);
-                    float.TryParse(data[2], out info.v);
+                    if(IsNumeric(data[1])) {
+                        info.pos = float.Parse(changeDouble(data[1]));
+                    }
+                    if(IsNumeric(data[2])) {
+                        info.v = float.Parse(changeDouble(data[2]));
+                    }
                     s2n_data.Add(info);
                 }
             }
@@ -129,8 +167,12 @@ public class CommonFuns : MonoBehaviour
                 PositionInfo info = new PositionInfo();
                 if(data.Length == 3){
                     int.TryParse(data[0], out info.frame);
-                    float.TryParse(data[1], out info.pos);
-                    float.TryParse(data[2], out info.v);
+                    if(IsNumeric(data[1])) {
+                        info.pos = float.Parse(changeDouble(data[1]));
+                    }
+                    if(IsNumeric(data[2])) {
+                        info.v = float.Parse(changeDouble(data[2]));
+                    }
                     n2s_data.Add(info);
                 }
             }
@@ -150,9 +192,15 @@ public class CommonFuns : MonoBehaviour
                 PositionInfo info = new PositionInfo();
                 if(data.Length == 4){
                     int.TryParse(data[0], out info.frame);
-                    float.TryParse(data[1], out info.pos);
-                    float.TryParse(data[2], out info.v);
-                    float.TryParse(data[3], out info.pos2);
+                    if(IsNumeric(data[1])) {
+                        info.pos = float.Parse(changeDouble(data[1]));
+                    }
+                    if(IsNumeric(data[2])) {
+                        info.v = float.Parse(changeDouble(data[2]));
+                    }
+                    if(IsNumeric(data[3])) {
+                        info.pos2 = float.Parse(changeDouble(data[3]));
+                    }
                     rt_data.Add(info);
                 }
             }
@@ -171,9 +219,15 @@ public class CommonFuns : MonoBehaviour
                 PositionInfo info = new PositionInfo();
                 if(data.Length == 4){
                     int.TryParse(data[0], out info.frame);
-                    float.TryParse(data[1], out info.pos);
-                    float.TryParse(data[2], out info.v);
-                    float.TryParse(data[3], out info.pos2);
+                    if(IsNumeric(data[1])) {
+                        info.pos = float.Parse(changeDouble(data[1]));
+                    }
+                    if(IsNumeric(data[2])) {
+                        info.v = float.Parse(changeDouble(data[2]));
+                    }
+                    if(IsNumeric(data[3])) {
+                        info.pos2 = float.Parse(changeDouble(data[3]));
+                    }
                     lt_data.Add(info);
                 }
             }
@@ -197,8 +251,12 @@ public class CommonFuns : MonoBehaviour
                     int.TryParse(data[2], out info.baseTable);
                     info.direction = data[3];
                     info.horizontal = data[4];
-                    float.TryParse(data[5], out info.x);
-                    float.TryParse(data[6], out info.y);
+                    if(IsNumeric(data[5])) {
+                        info.x = float.Parse(changeDouble(data[5]));
+                    }
+                    if(IsNumeric(data[6])) {
+                        info.y = float.Parse(changeDouble(data[6]));
+                    }
                     int.TryParse(data[7], out info.delay);
                     int.TryParse(data[8], out info.frame_rate);
                     legenda_data.Add(info);

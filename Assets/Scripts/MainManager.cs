@@ -56,6 +56,7 @@ public class MainManager : MonoBehaviour
     public List<ColorSet> colors;
 
     public int tickCounter = 0;
+        bool isFirst = true;
 
 
     // Start is called before the first frame update
@@ -84,6 +85,7 @@ public class MainManager : MonoBehaviour
             deltaTime += Time.deltaTime;
             int nowIndex = (int)(deltaTime);
             if(nowIndex > index){
+                // Debug.LogError("insert:" + deltaTime);
                 index = nowIndex;
 
                 CreatePoints();
@@ -116,7 +118,6 @@ public class MainManager : MonoBehaviour
     }
     //create wlps
     void CreatePoints(){
-        bool isFirst = true;
         int roadIndex = 0;
         tickCounter ++;
         foreach(LegendaInfo legenda in CommonFuns.legenda_data){
