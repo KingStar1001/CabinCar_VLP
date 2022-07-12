@@ -183,7 +183,7 @@ public class MainManager : MonoBehaviour
             if(deltaTime < 60f)
                 show_cabin = false;
 
-            vlp.InitPoses(baseTable, direction, legenda.horizontal, constPos, isFirst, beforeVLP, show_cabin, rotationType);
+            vlp.InitCityPoses(baseTable, direction, legenda.horizontal, constPos, isFirst, beforeVLP, show_cabin, rotationType);
             if(isFirst)
                 beforeVLP = vlp;
             isFirst = false;

@@ -258,9 +258,9 @@
      <Compile Include="Assets\NGUI\Scripts\Internal\EventDelegate.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\NGUI\Scripts\Internal\UIDrawCall.cs" />
-     <Compile Include="Assets\Modern UI Pack\Scripts\Window\WindowDragger.cs" />
-     <Compile Include="Assets\NGUI\Scripts\UI\UI2DSprite.cs" />
      <Compile Include="Assets\Modern UI Pack\Scripts\Notification\NotificationManager.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UI2DSprite.cs" />
+     <Compile Include="Assets\Modern UI Pack\Scripts\Window\WindowDragger.cs" />
      <Compile Include="Assets\NGUI\Scripts\Interaction\UIPlaySound.cs" />
      <Compile Include="Assets\NGUI\Scripts\Interaction\UIDraggableCamera.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
@@ -286,6 +286,7 @@
      <Compile Include="Assets\NGUI\Scripts\Internal\NGUIDebug.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIOrthoCamera.cs" />
      <Compile Include="Assets\NGUI\Scripts\Tweening\TweenRotation.cs" />
+     <Compile Include="Assets\Scripts\BridgeManager.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
