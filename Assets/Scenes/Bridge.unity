@@ -1307,8 +1307,17 @@ MonoBehaviour:
   back_color: {r: 0, g: 0, b: 0, a: 1}
   vlp_color: {r: 0, g: 1, b: 0.8039216, a: 1}
   cabin_color: {r: 1, g: 1, b: 1, a: 0}
-  isStart: 1
+  isStart: 0
   tickCounter: 0
+  bridgeCabinColors:
+  - {r: 0.7529412, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0.67058825, b: 0.015686275, a: 1}
+  - {r: 0, g: 0.11372549, b: 0.8666667, a: 1}
+  - {r: 1, g: 0.7764706, b: 0, a: 1}
+  - {r: 0.21960784, g: 0.6901961, b: 1, a: 1}
+  - {r: 1, g: 0.3254902, b: 0.43529412, a: 1}
+  - {r: 0.6117647, g: 1, b: 0.5019608, a: 1}
+  cabinColorIndex: 0
 --- !u!4 &288126554
 Transform:
   m_ObjectHideFlags: 0
@@ -5923,7 +5932,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067931394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 825, y: 551, z: 0}
+  m_LocalPosition: {x: 970, y: 551, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1655009055}
@@ -8337,7 +8346,7 @@ MonoBehaviour:
   mAlpha: 1
   mAlphaProp: 
   mClipping: 3
-  mClipRange: {x: -0.72177124, y: 0, z: 2045.4478, w: 1188}
+  mClipRange: {x: 0, y: 0, z: 2333.463, w: 1188}
   mClipSoftness: {x: 0, y: 0}
   mDepth: 1
   mSortingOrder: 0

@@ -104,8 +104,8 @@ public class MainManager : MonoBehaviour
             }
 
             if(deltaTime >= 180f){
-                float val = 1 + (deltaTime - 180f) / 15f;
-                if(val > 2f) val = 2f;
+                float val = 1 + (deltaTime - 180f) * 4 / 15f;
+                if(val > 5f) val = 5f;
                 Main.transform.localScale = Vector3.one * val;
                 zoomSlider.mainSlider.value = val - 1f;
             }

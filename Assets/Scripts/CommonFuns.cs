@@ -22,6 +22,17 @@ public class LegendaInfo{
     public int delay;
     public int frame_rate;
 }
+
+public class SummaryInfo{
+    public string a;
+    public string b;
+    public string c;
+    public string d;
+    public string e;
+    public string f;
+    public string g;
+    public string h;
+}
 public class CommonFuns : MonoBehaviour
 {
     //position datas
@@ -47,9 +58,35 @@ public class CommonFuns : MonoBehaviour
     public static List<PositionInfo> bridge_g = new List<PositionInfo>();
 
     public static List<PositionInfo> bridge_h = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_a2b = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_a2c = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_a2d = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_b2c = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_b2d = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_c2d = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_d2a = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_d2b = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_d2c = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_c2a = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_c2b = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_b2a = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_e2f = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_e2g = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_e2h = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_f2g = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_f2h = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_g2h = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_h2e = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_h2f = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_h2g = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_g2e = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_g2f = new List<PositionInfo>();
+    public static List<PositionInfo> bridge_f2e = new List<PositionInfo>();
 
     //legenda data
     public static List<LegendaInfo> legenda_data = new List<LegendaInfo>();
+
+    public static List<SummaryInfo> summary = new List<SummaryInfo>();
 
     void Awake(){
         LoadE2W();
@@ -59,14 +96,41 @@ public class CommonFuns : MonoBehaviour
         LoadRT();
         LoadLT();
         LoadLegenda();
-        LoadBridgeA();
-        LoadBridgeB();
-        LoadBridgeC();
-        LoadBridgeD();
-        LoadBridgeE();
-        LoadBridgeF();
-        LoadBridgeG();
-        LoadBridgeH();
+
+        LoadBridgeData("Bridge/A.txt", bridge_a);
+        LoadBridgeData("Bridge/B.txt", bridge_b);
+        LoadBridgeData("Bridge/C.txt", bridge_c);
+        LoadBridgeData("Bridge/D.txt", bridge_d);
+        LoadBridgeData("Bridge/E.txt", bridge_e);
+        LoadBridgeData("Bridge/F.txt", bridge_f);
+        LoadBridgeData("Bridge/G.txt", bridge_g);
+        LoadBridgeData("Bridge/H.txt", bridge_h);
+        LoadBridgeData("Bridge/A2B.txt", bridge_a2b);
+        LoadBridgeData("Bridge/A2C.txt", bridge_a2c);
+        LoadBridgeData("Bridge/A2D.txt", bridge_a2d);
+        LoadBridgeData("Bridge/B2A.txt", bridge_b2a);
+        LoadBridgeData("Bridge/B2C.txt", bridge_b2c);
+        LoadBridgeData("Bridge/B2D.txt", bridge_b2d);
+        LoadBridgeData("Bridge/C2A.txt", bridge_c2a);
+        LoadBridgeData("Bridge/C2B.txt", bridge_c2b);
+        LoadBridgeData("Bridge/C2D.txt", bridge_c2d);
+        LoadBridgeData("Bridge/D2A.txt", bridge_d2a);
+        LoadBridgeData("Bridge/D2B.txt", bridge_d2b);
+        LoadBridgeData("Bridge/D2C.txt", bridge_d2c);
+        LoadBridgeData("Bridge/E2F.txt", bridge_e2f);
+        LoadBridgeData("Bridge/E2G.txt", bridge_e2g);
+        LoadBridgeData("Bridge/E2H.txt", bridge_e2h);
+        LoadBridgeData("Bridge/F2E.txt", bridge_f2e);
+        LoadBridgeData("Bridge/F2G.txt", bridge_f2g);
+        LoadBridgeData("Bridge/F2H.txt", bridge_f2h);
+        LoadBridgeData("Bridge/G2E.txt", bridge_g2e);
+        LoadBridgeData("Bridge/G2F.txt", bridge_g2f);
+        LoadBridgeData("Bridge/G2H.txt", bridge_g2h);
+        LoadBridgeData("Bridge/H2E.txt", bridge_h2e);
+        LoadBridgeData("Bridge/H2F.txt", bridge_h2f);
+        LoadBridgeData("Bridge/H2G.txt", bridge_h2g);
+
+        LoadSummary();
     }
     public static string[] LoadData(string filename){
 
@@ -290,10 +354,10 @@ public class CommonFuns : MonoBehaviour
         }
     }
 
-    public static void LoadBridgeA(){
-        string[] lines = LoadData("Bridge/A.txt");
+    public static void LoadBridgeData(string file_name, List<PositionInfo> table){
+        string[] lines = LoadData(file_name);
         
-        bridge_a.Clear();
+        table.Clear();
         int index = 0;
         foreach(string line in lines) {
             var data = line.Split("\t"[0]);
@@ -310,196 +374,34 @@ public class CommonFuns : MonoBehaviour
                     if(IsNumeric(data[3])) {
                         info.pos2 = float.Parse(changeDouble(data[3]));
                     }
-                    bridge_a.Add(info);
+                    table.Add(info);
                 }
             }
             index ++;
         }
     }
 
-    public static void LoadBridgeB(){
-        string[] lines = LoadData("Bridge/B.txt");
+    public static void LoadSummary() {
+        string[] lines = LoadData("Bridge/SUMMARY.txt");
         
-        bridge_b.Clear();
+        summary.Clear();
         int index = 0;
         foreach(string line in lines) {
-            var data = line.Split("\t"[0]);
+            string str = line.Replace("\r", "");
+            str = str.Replace("\n", "");
+            var data = str.Split("\t"[0]);
             if(index > 0){
-                PositionInfo info = new PositionInfo();
-                if(data.Length == 4){
-                    int.TryParse(data[0], out info.frame);
-                    if(IsNumeric(data[1])) {
-                        info.pos = float.Parse(changeDouble(data[1]));
-                    }
-                    if(IsNumeric(data[2])) {
-                        info.v = float.Parse(changeDouble(data[2]));
-                    }
-                    if(IsNumeric(data[3])) {
-                        info.pos2 = float.Parse(changeDouble(data[3]));
-                    }
-                    bridge_b.Add(info);
-                }
-            }
-            index ++;
-        }
-    }
-
-    public static void LoadBridgeC(){
-        string[] lines = LoadData("Bridge/C.txt");
-        
-        bridge_c.Clear();
-        int index = 0;
-        foreach(string line in lines) {
-            var data = line.Split("\t"[0]);
-            if(index > 0){
-                PositionInfo info = new PositionInfo();
-                if(data.Length == 4){
-                    int.TryParse(data[0], out info.frame);
-                    if(IsNumeric(data[1])) {
-                        info.pos = float.Parse(changeDouble(data[1]));
-                    }
-                    if(IsNumeric(data[2])) {
-                        info.v = float.Parse(changeDouble(data[2]));
-                    }
-                    if(IsNumeric(data[3])) {
-                        info.pos2 = float.Parse(changeDouble(data[3]));
-                    }
-                    bridge_c.Add(info);
-                }
-            }
-            index ++;
-        }
-    }
-
-    public static void LoadBridgeD(){
-        string[] lines = LoadData("Bridge/D.txt");
-        
-        bridge_d.Clear();
-        int index = 0;
-        foreach(string line in lines) {
-            var data = line.Split("\t"[0]);
-            if(index > 0){
-                PositionInfo info = new PositionInfo();
-                if(data.Length == 4){
-                    int.TryParse(data[0], out info.frame);
-                    if(IsNumeric(data[1])) {
-                        info.pos = float.Parse(changeDouble(data[1]));
-                    }
-                    if(IsNumeric(data[2])) {
-                        info.v = float.Parse(changeDouble(data[2]));
-                    }
-                    if(IsNumeric(data[3])) {
-                        info.pos2 = float.Parse(changeDouble(data[3]));
-                    }
-                    bridge_d.Add(info);
-                }
-            }
-            index ++;
-        }
-    }
-
-    public static void LoadBridgeE(){
-        string[] lines = LoadData("Bridge/E.txt");
-        
-        bridge_e.Clear();
-        int index = 0;
-        foreach(string line in lines) {
-            var data = line.Split("\t"[0]);
-            if(index > 0){
-                PositionInfo info = new PositionInfo();
-                if(data.Length == 4){
-                    int.TryParse(data[0], out info.frame);
-                    if(IsNumeric(data[1])) {
-                        info.pos = float.Parse(changeDouble(data[1]));
-                    }
-                    if(IsNumeric(data[2])) {
-                        info.v = float.Parse(changeDouble(data[2]));
-                    }
-                    if(IsNumeric(data[3])) {
-                        info.pos2 = float.Parse(changeDouble(data[3]));
-                    }
-                    bridge_e.Add(info);
-                }
-            }
-            index ++;
-        }
-    }
-
-    public static void LoadBridgeF(){
-        string[] lines = LoadData("Bridge/F.txt");
-        
-        bridge_f.Clear();
-        int index = 0;
-        foreach(string line in lines) {
-            var data = line.Split("\t"[0]);
-            if(index > 0){
-                PositionInfo info = new PositionInfo();
-                if(data.Length == 4){
-                    int.TryParse(data[0], out info.frame);
-                    if(IsNumeric(data[1])) {
-                        info.pos = float.Parse(changeDouble(data[1]));
-                    }
-                    if(IsNumeric(data[2])) {
-                        info.v = float.Parse(changeDouble(data[2]));
-                    }
-                    if(IsNumeric(data[3])) {
-                        info.pos2 = float.Parse(changeDouble(data[3]));
-                    }
-                    bridge_f.Add(info);
-                }
-            }
-            index ++;
-        }
-    }
-
-    public static void LoadBridgeG(){
-        string[] lines = LoadData("Bridge/G.txt");
-        
-        bridge_g.Clear();
-        int index = 0;
-        foreach(string line in lines) {
-            var data = line.Split("\t"[0]);
-            if(index > 0){
-                PositionInfo info = new PositionInfo();
-                if(data.Length == 4){
-                    int.TryParse(data[0], out info.frame);
-                    if(IsNumeric(data[1])) {
-                        info.pos = float.Parse(changeDouble(data[1]));
-                    }
-                    if(IsNumeric(data[2])) {
-                        info.v = float.Parse(changeDouble(data[2]));
-                    }
-                    if(IsNumeric(data[3])) {
-                        info.pos2 = float.Parse(changeDouble(data[3]));
-                    }
-                    bridge_g.Add(info);
-                }
-            }
-            index ++;
-        }
-    }
-
-    public static void LoadBridgeH(){
-        string[] lines = LoadData("Bridge/H.txt");
-        
-        bridge_h.Clear();
-        int index = 0;
-        foreach(string line in lines) {
-            var data = line.Split("\t"[0]);
-            if(index > 0){
-                PositionInfo info = new PositionInfo();
-                if(data.Length == 4){
-                    int.TryParse(data[0], out info.frame);
-                    if(IsNumeric(data[1])) {
-                        info.pos = float.Parse(changeDouble(data[1]));
-                    }
-                    if(IsNumeric(data[2])) {
-                        info.v = float.Parse(changeDouble(data[2]));
-                    }
-                    if(IsNumeric(data[3])) {
-                        info.pos2 = float.Parse(changeDouble(data[3]));
-                    }
-                    bridge_h.Add(info);
+                SummaryInfo info = new SummaryInfo();
+                if(data.Length == 8){
+                    info.a = data[0];
+                    info.b = data[1];
+                    info.c = data[2];
+                    info.d = data[3];
+                    info.e = data[4];
+                    info.f = data[5];
+                    info.g = data[6];
+                    info.h = data[7];
+                    summary.Add(info);
                 }
             }
             index ++;

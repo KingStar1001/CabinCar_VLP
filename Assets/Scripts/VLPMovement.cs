@@ -33,6 +33,9 @@ public class VLPMovement : MonoBehaviour
     public PositionInfo currentPositionInfo;
 
     public int beforeIndex = 0;
+
+    public bool isSpecial;
+    public Color additionalColor;
     // Start is called before the first frame update
     void Start()
     {
@@ -111,7 +114,7 @@ public class VLPMovement : MonoBehaviour
                 }
             }else{
                 vlpSprite.color = BridgeManager.instance.vlp_color;
-                if(has_cabin)
+                if(has_cabin && !isSpecial)
                     cabin_sprite.color = BridgeManager.instance.cabin_color;
             }
             // if(showDistanceLabel){
@@ -186,12 +189,14 @@ public class VLPMovement : MonoBehaviour
         }
 //        cabin.SetActive(false);
     }
-    public void InitBridgePoses(List<PositionInfo> _poses, bool _direction, bool _has_cabin){
+    public void InitBridgePoses(List<PositionInfo> _poses, bool _direction, bool _has_cabin, bool _isSpecial, Color _additionalColor){
         vlpContainerType = 1;
         direction = _direction;
         movePoses = _poses;
         startMove = true;
         has_cabin = _has_cabin;
+        isSpecial = _isSpecial;
+        additionalColor = _additionalColor;
         cabin.SetActive(has_cabin);
         if(direction){
             cabin.transform.localEulerAngles = new Vector3(0, 0, 180);
@@ -203,6 +208,10 @@ public class VLPMovement : MonoBehaviour
             cabin.SetActive(true);
         }else{
             cabin.SetActive(false);
+        }
+
+        if(isSpecial) {
+            cabin_sprite.color = additionalColor;
         }
 //        cabin.SetActive(false);
     }
