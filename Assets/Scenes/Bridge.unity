@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1306,18 +1306,20 @@ MonoBehaviour:
   zoomSlider: {fileID: 114357131989995157}
   back_color: {r: 0, g: 0, b: 0, a: 1}
   vlp_color: {r: 0, g: 1, b: 0.8039216, a: 1}
-  cabin_color: {r: 1, g: 1, b: 1, a: 0}
+  cabin_color: {r: 1, g: 1, b: 1, a: 1}
   isStart: 0
   tickCounter: 0
   bridgeCabinColors:
   - {r: 0.7529412, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0.67058825, b: 0.015686275, a: 1}
-  - {r: 0, g: 0.11372549, b: 0.8666667, a: 1}
-  - {r: 1, g: 0.7764706, b: 0, a: 1}
-  - {r: 0.21960784, g: 0.6901961, b: 1, a: 1}
+  - {r: 0, g: 0.18039216, b: 1, a: 1}
+  - {r: 1, g: 0.64705884, b: 0, a: 1}
+  - {r: 0.23137255, g: 1, b: 0, a: 1}
   - {r: 1, g: 0.3254902, b: 0.43529412, a: 1}
+  - {r: 0.3647059, g: 0.47843137, b: 1, a: 1}
+  - {r: 1, g: 0.8352941, b: 0.53333336, a: 1}
   - {r: 0.6117647, g: 1, b: 0.5019608, a: 1}
   cabinColorIndex: 0
+  startSummeryTime: -1
 --- !u!4 &288126554
 Transform:
   m_ObjectHideFlags: 0
@@ -1524,7 +1526,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337946682}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 701, y: -359, z: 0}
+  m_LocalPosition: {x: 44, y: -341, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 790859900}
@@ -4275,7 +4277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790859899}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -701, y: 359, z: 0}
+  m_LocalPosition: {x: -44, y: 341, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1773000259}
@@ -4927,7 +4929,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855222502}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -701, y: 359, z: 0}
+  m_LocalPosition: {x: -44, y: 341, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1469044558}
@@ -5932,7 +5934,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067931394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 970, y: 551, z: 0}
+  m_LocalPosition: {x: 770, y: 551, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1655009055}
@@ -6442,7 +6444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107726310}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -701, y: 359, z: 0}
+  m_LocalPosition: {x: -44, y: 341, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 337946683}
@@ -8346,7 +8348,7 @@ MonoBehaviour:
   mAlpha: 1
   mAlphaProp: 
   mClipping: 3
-  mClipRange: {x: 0, y: 0, z: 2333.463, w: 1188}
+  mClipRange: {x: 0, y: 0, z: 1934.7428, w: 1188}
   mClipSoftness: {x: 0, y: 0}
   mDepth: 1
   mSortingOrder: 0

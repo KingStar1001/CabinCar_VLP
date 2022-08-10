@@ -29,6 +29,8 @@ public class BridgeManager : MonoBehaviour
     public List<Color> bridgeCabinColors;
     public int cabinColorIndex = 0;
 
+    public float startSummeryTime = -1f;
+
 
     // Start is called before the first frame update
     void Awake(){
@@ -44,6 +46,9 @@ public class BridgeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space)){
+            isStart = true;
+        }
         //Debug.LogError(Screen.width.ToString() + "," + Screen.height.ToString());
         //create wlps every 1 second
         if(isStart){
@@ -55,25 +60,37 @@ public class BridgeManager : MonoBehaviour
 
                 CreatePoints();
             }
-
-            if(deltaTime >= 45f){
-                float alpha = deltaTime - 45f;
-                if(alpha > 1f) alpha = 1f;
-                cabin_color = new Color(cabin_color.r, cabin_color.g, cabin_color.b, alpha);
-            }
-
-            if(deltaTime >= 75f){
-                float alpha = 76f - deltaTime;
-                if(alpha < 0f) alpha = 0f;
-                vlp_color = new Color(vlp_color.r, vlp_color.g, vlp_color.b, alpha);
-            }
-
-            // if(deltaTime >= 90f){
-            //     float val = 1 + (deltaTime - 90f) / 15f;
-            //     if(val > 2f) val = 2f;
-            //     Main.transform.localScale = Vector3.one * val;
-            //     zoomSlider.mainSlider.value = val - 1f;
+            // if(deltaTime >= 45f){
+            //     float alpha = deltaTime - 45f;
+            //     if(alpha > 1f) alpha = 1f;
+            //     cabin_color = new Color(cabin_color.r, cabin_color.g, cabin_color.b, alpha);
             // }
+
+            // if(deltaTime >= 15f){
+            //     float alpha = deltaTime - 15f;
+            //     if(alpha > 1f) alpha = 1f;
+            //     cabin_color = new Color(cabin_color.r, cabin_color.g, cabin_color.b, alpha);
+            // }
+
+            // if(deltaTime >= 15f){
+            //     float alpha = 31f - deltaTime;
+            //     if(alpha < 0f) alpha = 0f;
+            //     vlp_color = new Color(vlp_color.r, vlp_color.g, vlp_color.b, alpha);
+            // }
+
+            if(deltaTime >= 15f){
+                float val = 1 + (deltaTime - 15f) / 3f;
+                if(val > 3f) val = 3f;
+                Main.transform.localScale = Vector3.one * val;
+                // zoomSlider.mainSlider.value = val - 1f;
+            }
+
+            if(deltaTime >= 33f){
+                float val = 3 - (deltaTime - 33f) / 3f;
+                if(val < 1f) val = 1f;
+                Main.transform.localScale = Vector3.one * val;
+                // zoomSlider.mainSlider.value = val - 1f;
+            }
         }
     }
     //control zooming
@@ -95,14 +112,17 @@ public class BridgeManager : MonoBehaviour
             bool isSpecial = false;
             Color additionalColor = cabin_color;
 
+            String title = "";
+
             switch(i) {
             case 0:
-                if(deltaTime <= 75){
+                if(deltaTime <= startSummeryTime){
                     baseTable = CommonFuns.bridge_a;
                 }else{
                     if(summeryInfo.a == ""){
                         baseTable = CommonFuns.bridge_a;
                     } else{
+                        title = summeryInfo.a;
                         baseTable = GetBaseTableFromSummery(summeryInfo.a);
                         show_cabin = true;
                     }
@@ -116,12 +136,13 @@ public class BridgeManager : MonoBehaviour
                 direction = false;
                 break;
             case 1:
-                if(deltaTime <= 75){
+                if(deltaTime <= startSummeryTime){
                     baseTable = CommonFuns.bridge_b;
                 }else{
                     if(summeryInfo.b == ""){
                         baseTable = CommonFuns.bridge_b;
                     } else{
+                        title = summeryInfo.b;
                         baseTable = GetBaseTableFromSummery(summeryInfo.b);
                         show_cabin = true;
                     }
@@ -135,12 +156,13 @@ public class BridgeManager : MonoBehaviour
                 direction = false;
                 break;
             case 2:
-                if(deltaTime <= 75){
+                if(deltaTime <= startSummeryTime){
                     baseTable = CommonFuns.bridge_c;
                 }else{
                     if(summeryInfo.c == ""){
                         baseTable = CommonFuns.bridge_c;
                     } else{
+                        title = summeryInfo.c;
                         baseTable = GetBaseTableFromSummery(summeryInfo.c);
                         show_cabin = true;
                     }
@@ -154,12 +176,13 @@ public class BridgeManager : MonoBehaviour
                 direction = false;
                 break;
             case 3:
-                if(deltaTime <= 75){
+                if(deltaTime <= startSummeryTime){
                     baseTable = CommonFuns.bridge_d;
                 }else{
                     if(summeryInfo.d == ""){
                         baseTable = CommonFuns.bridge_d;
                     } else{
+                        title = summeryInfo.d;
                         baseTable = GetBaseTableFromSummery(summeryInfo.d);
                         show_cabin = true;
                     }
@@ -173,12 +196,13 @@ public class BridgeManager : MonoBehaviour
                 direction = false;
                 break;
             case 4:
-                if(deltaTime <= 75){
+                if(deltaTime <= startSummeryTime){
                     baseTable = CommonFuns.bridge_e;
                 }else{
                     if(summeryInfo.e == ""){
                         baseTable = CommonFuns.bridge_e;
                     } else{
+                        title = summeryInfo.e;
                         baseTable = GetBaseTableFromSummery(summeryInfo.e);
                         show_cabin = true;
                     }
@@ -192,12 +216,13 @@ public class BridgeManager : MonoBehaviour
                 direction = true;
                 break;
             case 5:
-                if(deltaTime <= 75){
+                if(deltaTime <= startSummeryTime){
                     baseTable = CommonFuns.bridge_f;
                 }else{
                     if(summeryInfo.f == ""){
                         baseTable = CommonFuns.bridge_f;
                     } else{
+                        title = summeryInfo.f;
                         baseTable = GetBaseTableFromSummery(summeryInfo.f);
                         show_cabin = true;
                     }
@@ -211,12 +236,13 @@ public class BridgeManager : MonoBehaviour
                 direction = true;
                 break;
             case 6:
-                if(deltaTime <= 75){
+                if(deltaTime <= startSummeryTime){
                     baseTable = CommonFuns.bridge_g;
                 }else{
                     if(summeryInfo.g == ""){
                         baseTable = CommonFuns.bridge_g;
                     } else{
+                        title = summeryInfo.g;
                         baseTable = GetBaseTableFromSummery(summeryInfo.g);
                         show_cabin = true;
                     }
@@ -230,12 +256,13 @@ public class BridgeManager : MonoBehaviour
                 direction = true;
                 break;
             case 7:
-                if(deltaTime <= 75){
+                if(deltaTime <= startSummeryTime){
                     baseTable = CommonFuns.bridge_h;
                 }else{
                     if(summeryInfo.h == ""){
                         baseTable = CommonFuns.bridge_h;
                     } else{
+                        title = summeryInfo.h;
                         baseTable = GetBaseTableFromSummery(summeryInfo.h);
                         show_cabin = true;
                     }
@@ -253,17 +280,37 @@ public class BridgeManager : MonoBehaviour
             if(cabinColorIndex >= bridgeCabinColors.Count)
                 cabinColorIndex = 0;
 
-            if(deltaTime < 45f)
-                show_cabin = false;
-            else if(deltaTime < 75f){
-                if(UnityEngine.Random.Range(0, 100) < 20){
-                    show_cabin = true;
-                }
-            }
+            // if(deltaTime <= 15f)
+            //     show_cabin = false;
 
+            if (title.Length == 3 && title[2] == 'D'){
+                additionalColor = bridgeCabinColors[0];
+            } else if (title.Length == 3 && title[2] == 'C') {
+                additionalColor = bridgeCabinColors[1];
+            } else if (title.Length == 3 && title[2] == 'B') {
+                additionalColor = bridgeCabinColors[2];
+            } else if (title.Length == 3 && title[2] == 'A') {
+                additionalColor = bridgeCabinColors[3];
+            } else if (title.Length == 3 && title[2] == 'H') {
+                additionalColor = bridgeCabinColors[4];
+            } else if (title.Length == 3 && title[2] == 'G') {
+                additionalColor = bridgeCabinColors[5];
+            } else if (title.Length == 3 && title[2] == 'F') {
+                additionalColor = bridgeCabinColors[6];
+            } else if (title.Length == 3 && title[2] == 'E') {
+                additionalColor = bridgeCabinColors[7];
+            }
+            
+                // if(UnityEngine.Random.Range(0, 100) < 20){
+                //     show_cabin = true;
+                // }
+            if(baseTable == null){
+                Debug.Log("hello:" + tickCounter);
+            }
             vlp.InitBridgePoses(baseTable, direction, show_cabin, isSpecial, additionalColor);
         }
-        tickCounter ++;
+        if(deltaTime >= 0)
+            tickCounter ++;
     }
     
     public bool isNormalCabin(string type) {
@@ -340,6 +387,7 @@ public class BridgeManager : MonoBehaviour
             return CommonFuns.bridge_h2g;
         }
         Debug.Log(type + ":" + type.Length);
+        Debug.Log((int)type[1]);
         return null;
     }
 
