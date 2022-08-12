@@ -29,7 +29,7 @@ public class BridgeManager : MonoBehaviour
     public List<Color> bridgeCabinColors;
     public int cabinColorIndex = 0;
 
-    public float startSummeryTime = -1f;
+    public float startSummeryTime = 999999f;
 
 
     // Start is called before the first frame update
@@ -60,11 +60,11 @@ public class BridgeManager : MonoBehaviour
 
                 CreatePoints();
             }
-            // if(deltaTime >= 45f){
-            //     float alpha = deltaTime - 45f;
-            //     if(alpha > 1f) alpha = 1f;
-            //     cabin_color = new Color(cabin_color.r, cabin_color.g, cabin_color.b, alpha);
-            // }
+            if(deltaTime >= 45f){
+                float alpha = deltaTime - 45f;
+                if(alpha > 1f) alpha = 1f;
+                cabin_color = new Color(cabin_color.r, cabin_color.g, cabin_color.b, alpha);
+            }
 
             // if(deltaTime >= 15f){
             //     float alpha = deltaTime - 15f;
@@ -78,19 +78,19 @@ public class BridgeManager : MonoBehaviour
             //     vlp_color = new Color(vlp_color.r, vlp_color.g, vlp_color.b, alpha);
             // }
 
-            if(deltaTime >= 15f){
-                float val = 1 + (deltaTime - 15f) / 3f;
-                if(val > 3f) val = 3f;
-                Main.transform.localScale = Vector3.one * val;
-                // zoomSlider.mainSlider.value = val - 1f;
-            }
+            // if(deltaTime >= 15f){
+            //     float val = 1 + (deltaTime - 15f) / 3f;
+            //     if(val > 3f) val = 3f;
+            //     Main.transform.localScale = Vector3.one * val;
+            //     // zoomSlider.mainSlider.value = val - 1f;
+            // }
 
-            if(deltaTime >= 33f){
-                float val = 3 - (deltaTime - 33f) / 3f;
-                if(val < 1f) val = 1f;
-                Main.transform.localScale = Vector3.one * val;
-                // zoomSlider.mainSlider.value = val - 1f;
-            }
+            // if(deltaTime >= 33f){
+            //     float val = 3 - (deltaTime - 33f) / 3f;
+            //     if(val < 1f) val = 1f;
+            //     Main.transform.localScale = Vector3.one * val;
+            //     // zoomSlider.mainSlider.value = val - 1f;
+            // }
         }
     }
     //control zooming
@@ -301,9 +301,9 @@ public class BridgeManager : MonoBehaviour
                 additionalColor = bridgeCabinColors[7];
             }
             
-                // if(UnityEngine.Random.Range(0, 100) < 20){
-                //     show_cabin = true;
-                // }
+            if(UnityEngine.Random.Range(0, 100) < 20){
+                show_cabin = true;
+            }
             if(baseTable == null){
                 Debug.Log("hello:" + tickCounter);
             }

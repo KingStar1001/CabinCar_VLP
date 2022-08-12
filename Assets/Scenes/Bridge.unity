@@ -1306,8 +1306,8 @@ MonoBehaviour:
   zoomSlider: {fileID: 114357131989995157}
   back_color: {r: 0, g: 0, b: 0, a: 1}
   vlp_color: {r: 0, g: 1, b: 0.8039216, a: 1}
-  cabin_color: {r: 1, g: 1, b: 1, a: 1}
-  isStart: 0
+  cabin_color: {r: 1, g: 1, b: 1, a: 0}
+  isStart: 1
   tickCounter: 0
   bridgeCabinColors:
   - {r: 0.7529412, g: 0, b: 0, a: 1}
@@ -1319,7 +1319,7 @@ MonoBehaviour:
   - {r: 1, g: 0.8352941, b: 0.53333336, a: 1}
   - {r: 0.6117647, g: 1, b: 0.5019608, a: 1}
   cabinColorIndex: 0
-  startSummeryTime: -1
+  startSummeryTime: 9999999
 --- !u!4 &288126554
 Transform:
   m_ObjectHideFlags: 0
